@@ -1,0 +1,32 @@
+.mainbody{
+	width:80%;
+	margin:50px 5%;
+	position:relative;
+	background-color:white;
+	padding:60px 5%;
+}
+.headline{
+	font-size:45px;
+	position:relative;
+	text-align:center;
+}
+.author{
+	font-size:25px;
+	position:relative;
+	text-align:center;
+}
+.bodytext{
+	width:90%;
+	margin:0 auto;
+	font-size:30px;
+	position:relative;
+	text-align:left;
+	line-height:140%;
+	text-indent:2em;
+}
+.linkinfo{
+	margin:0px 20px;
+	padding:0px 5px;
+	display:inline;
+	font-size:20px;
+}
