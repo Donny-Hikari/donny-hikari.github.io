@@ -1,3 +1,14 @@
+/*
+* Blogs Loader
+*
+* Copyright (c) 2017 Donny Hikari
+* licensed under MIT license.
+*
+* https://github.com/Donny-Hikari/stream-blog
+*
+* Version: 0.3.2
+*/
+
 var DEBUG_MODE = true;
 
 var blogroot = "./blogs/";
@@ -22,16 +33,36 @@ const PageStateEnum = {
   HOME: 0,
   BLOGPOST: 1
 };
+
+function setPageTitle(title) {
+  var postTitle = $("#postTitleContainer");
+  if (!title || title == "") {
+    document.title = "Donny's Blogs";
+    postTitle.text("");
+  }
+  else {
+    document.title = title + " - Donny's Blogs";
+    postTitle.text(title);
+  }
+}
+
+var homepageScrollTop = 0;
 function switchPage(page) {
   switch (page)
   {
   case PageStateEnum.HOME:
     $("#postContainer").hide();
+    setPageTitle();
+    $('#homebtn').find('span').removeClass("home").text("Donny's Blogs");
     $("#presentList").show();
+    $(window).scrollTop(homepageScrollTop);
     break;
   case PageStateEnum.BLOGPOST:
+    homepageScrollTop = $(window).scrollTop();
     $("#presentList").hide();
     $("#postContainer").show();
+    $(window).scrollTop(0);
+    $('#homebtn').find('span').addClass("home").text("Home");
     break;
   }
 }
@@ -41,11 +72,7 @@ function processPostXML(postinfo, postXML) {
 
   // Setting title
 	var title = (postinfo.title) ? (postinfo.title) : postXML.getElementsByTagName("title")[0].innerHTML;
-  if (title) {
-  	document.title = title + " - Donny's Blogs";
-    var postTitle = document.getElementById("postTitleContainer");
-    postTitle.innerHTML = title;
-  }
+  setPageTitle(title);
 
   // Assign context
   var body = postXML.getElementsByTagName("body");
@@ -78,11 +105,7 @@ function processpostHTML(postinfo, rawHTML) {
 
   // Setting title
   var title = (postinfo.title) ? (postinfo.title) : document.getElementById("postTitle").innerHTML;
-  if (title) {
-    document.title = title + " - Donny's Blogs";
-    var postTitle = document.getElementById("postTitleContainer");
-    postTitle.innerHTML = title;
-  }
+  setPageTitle(title);
 
   // Loading css files, prevent display before css loaded
   var links = postContainer.getElementsByTagName("link");
@@ -178,13 +201,15 @@ function loadPostPreview($postPreviewer) {
   $postPreviewer.appear_off($postPreviewer.onappear_callback);
 
   var postFolder = getFolder(infourl);
+  var $postInfoMask = $postPreviewer.find(".infomask");
 
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
         var postinfo = parsePostInfo(this.responseText, postFolder);
 
-        $postPreviewer.find(".infomask h1").text(postinfo.title);
+        $postInfoMask.find(".posttitle").text(postinfo.title);
+        $postInfoMask.find(".postdate").text(postinfo.date);
         $postPreviewer.click(function (){ loadpostMain(postinfo); });
         $postPreviewer.css("cursor", "pointer");
         $postPreviewer.css("background-image", "url(\"" + postFolder + postinfo.poster + "\")");
@@ -206,14 +231,19 @@ function loadList($yearContainer) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      var postslist = JSON.parse(this.responseText);
+      var postslist = JSON.parse(this.responseText); // all posts in this year
+      if (!postslist) return;
+
       var $postPreviewer = $("<article>", { class: "postpreviewer" })
         .append( $("<section>") );
       var $infomask = $("<div>", { class: "infomask" })
-        .append( $("<h1>") );
+        .append( $("<h1>", { class: "posttitle" }) )
+        .append( $("<p>", { class: "postdate" }) );
       $postPreviewer.append($infomask);
 
-      postslist && postslist.forEach(function (curList) {
+      $yearContainer.find(".postscount").text(postslist.length)
+        .append( $("<span>").css("padding-left", "15px").text("POSTS") );
+      postslist.forEach(function (curList) {
         var $curPreviewer = $postPreviewer.clone();
 
         // Regist appear callback
@@ -261,9 +291,9 @@ function loadHomepage() {
         var $curContainer = $yearContainer.clone();
 
         // Assign title
-        $curContainer.find(".yearbanner").append($("<p>").append(
-          $("<i>").text(yearTitle)
-        ));
+        $curContainer.find(".yearbanner")
+          .append( $("<p>").append($("<i>").text(yearTitle)) )
+          .append( $("<p>", { class: "postscount" }) );
 
         // Regist appear callback
         $curContainer.postslist = getFolder(listurl) + curList;

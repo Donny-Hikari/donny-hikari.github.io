@@ -7,21 +7,20 @@
 	width:90%;
 	margin-left:auto;
 	margin-right:auto;
-	font-size:40px;
+	font-size:35px;
 	position:relative;
 	text-align:center;
 }
 .author {
-	font-size:23px;
+	font-size:20px;
 	position:relative;
 	text-align:center;
 }
 .bodytext {
 	margin:0 auto;
-	font-size:25px;
+	font-size:18px;
 	position:relative;
 	text-align:left;
-	text-indent:2em;
 }
 .bodytext p {
 	line-height: 1.7;
@@ -46,10 +45,10 @@ li.linkinfo {
 @media screen and (min-width: 1000px) {
 	.bodytext img {
 	    display: block;
-		width: 80%;
+		width: 100%;
 		margin: 10px auto;
 	}
 	.mainbody {
-		margin:50px 5%;
+		padding:60px 15%;
 	}
 }
