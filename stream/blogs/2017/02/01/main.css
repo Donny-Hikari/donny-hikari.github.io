@@ -1,0 +1,77 @@
+/*
+* main.css
+* By Donny Hikari
+* 
+* v2017.02.02
+*/
+.mainbody {
+	padding:60px 5%;
+	position:relative;
+	background-color:white;
+}
+.headline {
+	width:90%;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:34px;
+	position:relative;
+	text-align:center;
+}
+.author {
+	font-size:22px;
+	position:relative;
+	text-align:center;
+}
+.bodytext {
+	margin:0 auto;
+	font-size:18px;
+	position:relative;
+	text-align:left;
+}
+.bodytext p {
+	line-height: 2.0;
+	margin: 5px auto;
+	text-indent:2em;
+}
+.bodytext br {
+	margin-bottom: 20px;
+}
+.audiowithtext {
+	margin-top: 10px;
+	margin-left: 2em;
+	display: flex;
+}
+.audiowithtext span {
+    margin: auto 0;
+	margin-right: 1em;
+}
+.bodytext img {
+    display: block;
+	width: 100%;
+	margin: 10px auto;
+}
+ul.contactlinks {
+	display:inline-block;
+    list-style-type: none;
+    text-align: left;
+}
+li.linkinfo {
+	margin:0px 20px;
+	padding:20px 5px;
+	display:inline-block;
+	font-size:20px;
+    white-space: nowrap;
+}
+@media screen and (min-width: 1000px) {
+	.bodytext img {
+	    display: block;
+		width: 90%;
+		margin: 10px auto;
+	}
+	.bodytext img.longImage {
+		width: 60%;
+	}
+	.mainbody {
+		padding:60px 15%;
+	}
+}
