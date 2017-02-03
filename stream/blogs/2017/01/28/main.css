@@ -33,7 +33,6 @@
 .audiowithtext {
 	margin-top: 10px;
 	margin-left: 2em;
-	display: flex;
 }
 .audiowithtext span {
     margin: auto 0;
@@ -64,5 +63,8 @@ li.linkinfo {
 	}
 	.mainbody {
 		padding:60px 15%;
+	}
+	.audiowithtext {
+		display: flex;
 	}
 }
