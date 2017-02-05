@@ -24,9 +24,10 @@
 }
 .bodytext {
 	margin:0 auto;
-	font-size:18px;
+	font-size:23px;
 	position:relative;
 	text-align:left;
+	font-family:"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
 }
 .bodytext p {
 	line-height: 2.0;
@@ -63,6 +64,9 @@ li.linkinfo {
     white-space: nowrap;
 }
 @media screen and (min-width: 1000px) {
+	.bodytext {
+		font-size:18px;
+	}
 	.bodytext img {
 	    display: block;
 		width: 90%;
@@ -74,4 +78,5 @@ li.linkinfo {
 	.mainbody {
 		padding:60px 15%;
 	}
+}
 }
