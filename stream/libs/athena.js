@@ -50,6 +50,12 @@ function onClickAboutme() {
   jumpToAboutme();
 }
 
+function rmccService() {
+  var dwr = setTimeout(function () {
+    $('#rscccontainer').remove();
+  }, 400);
+}
+
 function analyzeUrlParam() {
 
   // fallback
@@ -94,5 +100,7 @@ $(window).ready(function (){
   $("#menuPanel").css("left", "-" + $("#menuPanel").width() + "px");
 
   analyzeUrlParam();
+
+  rmccService();
 
 });
