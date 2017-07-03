@@ -43,7 +43,8 @@
 	text-align: left;
 }
 .bodytext p {
-	display: inline-block;
+	display: block;
+	min-height: 20px;
 	line-height: 2.0;
 	margin: 5px auto;
 	text-indent:2em;
