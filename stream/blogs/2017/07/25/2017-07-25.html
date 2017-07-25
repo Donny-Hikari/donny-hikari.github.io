@@ -1,0 +1,121 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><link rel="stylesheet" href="./main.css" type="text/css"></head><body><div class="mainbody"><h1 class="headline" id="mainbody">VJ 172735 F - Drying
+从TLE到刚好AC再到妥妥AC
+以及超级巨坑iostream</h1><div class="author">Donny</div><div class="bodytext"><p>二分。</p>
+<p>wa得最多的一题。</p>
+<p>一开始想投tou机lan用priority_queue结果TLE。</p>
+<p>自己想了下就是"连求模都没有就想过追加的F题"。</p>
+<p>乖乖改用二分，结果没考虑除0，RE了。</p>
+<p>然后各种姿势wa ...</p>
+<p>然后发现sort好像会TLE ...</p>
+<p>刚刚试了下，发现sort并不会导致TLE。</p>
+<p>导致TLE的竟然是检查循环里面的除法向上取整的写法。</p>
+<p></p>
+<p>TLE写法:</p>
+<p>t = diff / k + ((diff%k==0)?0:1);</p>
+<p>AC写法:</p>
+<p>t = (diff - 1) / k + 1;</p>
+<p></p>
+<p>真是太可怕了...</p>
+<p>不会是因为这个变动触发了inline吧? 手动把函数内联之后还是TLE了，排除了这种可能。</p>
+<p></p>
+<p>所以说... 真的可怕...</p>
+<p>然后检查了下过的用时，上面的超时，如果用long long和long用时1900+ms，用long和int用时1600+ms ... 用sort和不用sort用时一致。</p>
+<p></p>
+<p>然后再测试了下，发现了更可怕的。</p>
+<p></p>
+<p>写法1:</p>
+<p>t = diff / k + ((diff%k==0)?0:1);</p>
+<p>写法2:</p>
+<p>t = diff / k + ((diff%k&gt;0));</p>
+<p>写法3</p>
+<p>t = (diff - 1) / k + 1;</p>
+<p></p>
+<p>写法1比写法2共多花约50ms ...</p>
+<p>写法2用时和写法3一致。</p>
+<p></p>
+<p>写法1和long long结合刚好TLE ...</p>
+<p></p>
+<p>回去审视了下大家AC的用时，发现有500+ms AC的，也有1900+ms AC的 ...</p>
+<p>看来这水很深，明天再研究研究别人的代码。</p>
+<p></p>
+<p>败了败了。没想到时间的问题居然出在流输入输出上。</p>
+<p>迷信 sync false 和 tie 0 的我，虽然想到了这种可能，但是总以为 sync false 和 tie 0 了就和 stdio 差不了多少，毕竟自己也亲测过，以为稳的，没想到还有编译器和平台差异。</p>
+<p>以后还是尽量只用 stdio 吧。</p>
+<p></p>
+<p></p>
+<p>附上历程代码：</p>
+<p><a href="https://github.com/Donny-Hikari/VJ-172735-F/commits/master">VJ-172735-F Github</a></p>
+<p>VJ:</p>
+<p><a href="https://vjudge.net/contest/172735#status/DonnyBear/F/0/">VJ-172735-F VJudge</a></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p>参考资料：</p>
+<p><a href="https://www.zhihu.com/question/20452030">为什么 C 语言的输入输出函数比 C++ 的输入输出流要快？</a></p>
+<p><a href="https://www.byvoid.com/zhs/blog/fast-readfile">探寻C++最快的读取文件的方案</a></p>
+<p>一篇不可多得的深度好文:</p>
+<p><a href="http://blog.csdn.net/solstice/article/details/6612179">C++ 工程实践(7)：iostream 的用途与局限</a></p>
+<p></p>
+<table border="1" style="margin: 5px auto;">
+<tbody>
+<tr>
+<td>方法/平台/时间(秒)</td>
+<td>Linux gcc</td>
+<td>Windows mingw</td>
+<td>Windows VC2008</td>
+</tr>
+<tr>
+<td>scanf</td>
+<td>2.010</td>
+<td>3.704</td>
+<td>3.425</td>
+</tr>
+<tr>
+<td>cin</td>
+<td>6.380</td>
+<td>64.003</td>
+<td>19.208</td>
+</tr>
+<tr>
+<td>cin取消同步</td>
+<td>2.050</td>
+<td>6.004</td>
+<td>19.616</td>
+</tr>
+<tr>
+<td>fread</td>
+<td>0.290</td>
+<td>0.241</td>
+<td>0.304</td>
+</tr>
+<tr>
+<td>read</td>
+<td>0.290</td>
+<td>0.398</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>mmap</td>
+<td>0.250</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>Pascal read</td>
+<td>2.160</td>
+<td>4.668</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<p>从上面可以看出几个问题：</p>
+<ol style="margin: 5px auto;width: 83%;">
+<li>Linux平台上运行程序普遍比Windows上快。</li>
+<li>Windows下VC编译的程序一般运行比MINGW（MINimal Gcc for Windows）快。</li>
+<li>VC对cin取消同步与否<strong>不敏感</strong>，前后效率相同。反过来MINGW则<strong>非常敏感</strong>，前后效率相差8倍。</li>
+<li>read本是linux系统函数，MINGW可能采用了某种模拟方式，read比fread更慢。</li>
+<li>Pascal程序运行速度实在令人不敢恭维。</li>
+</ol>
+</div><div class="signature">By Donny</div><div class="last_edit">Last modified: 2017-07-25</div></div></body></html>
