@@ -1,0 +1,42 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><link rel="stylesheet" href="./main.css" type="text/css"></head><body><div class="mainbody"><h1 class="headline" id="mainbody">SCU-4444 - Travel - 补图最短路</h1><div class="author">Donny</div><div class="bodytext"><p>一个神奇的题目...</p>
+<p>乍一看是个简单题，但是N达到了1e5，并且要分情况，其中一种情况要求补图的最短路。</p>
+<p>赛时蛮力，结果不是WA就是T，不然就RE...</p>
+<p>果然不得不用专业点的方法。</p>
+<p>算是学到了一个新技能。</p>
+<p>补图的关键是下面这个函数：</p>
+<p></p>
+<div class="codes">
+<p>void bfs() {</p>
+<p>    queue&lt;int&gt; q;</p>
+<p>    for(int i=2;i&lt;=n;i++) {</p>
+<p>        s.insert(i);</p>
+<p>    }</p>
+<p>    q.push(1);</p>
+<p>    dis[1]=0;</p>
+<p>    dis[n]=INF;</p>
+<p>    while(!q.empty()) {</p>
+<p>        int u=q.front();q.pop();</p>
+<p>        for(int i=0;i&lt;edg[u].size();i++) {
+<p>            int v=edg[u][i];</p>
+<p>            if(!s.count(v))continue;</p>
+<p>            s.erase(v);t.insert(v);</p>
+<p>        }</p>
+<p>        for(it = s.begin();it!=s.end();it++) {</p>
+<p>            q.push(*it);</p>
+<p>            dis[*it]=dis[u]+1;</p>
+<p>        }</p>
+<p>        s.swap(t);</p>
+<p>        t.clear();</p>
+<p>    }</p>
+<p>    printf("%lld\n",min(dis[n]*b,a));</p>
+<p>}</p>
+</div>
+<p></p>
+<p>其中s和t是两个set。</p>
+<p>用这种方式可以快速遍历原图的补图。而且不需要重新构边。</p>
+<p></p>
+<p>VJ:</p>
+<p><a href="https://vjudge.net/contest/180747#problem/I">SCU-4444 - Travel</a></p>
+<p>Github:</p>
+<p><a href="https://github.com/Donny-Hikari/SCU-4444">SCU-4444 - Github</a></p>
+</div><div class="signature">By Donny</div><div class="last_edit">Last modified: 2017-08-27</div></div></body></html>

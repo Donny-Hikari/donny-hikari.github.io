@@ -1,0 +1,17 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><link rel="stylesheet" href="./main.css" type="text/css"></head><body><div class="mainbody"><h1 class="headline" id="mainbody">HDU-5383 - Yu-Gi-Oh! - 最小费用网络流</h1><div class="author">Donny</div><div class="bodytext"><p>一道最小费用网络流的模板题。</p>
+<p>思路倒是蛮清晰，就是普通的读入之后构图跑mincost就可以了。</p>
+<p>结果，一开始输入输出写T了.....</p>
+<p>汗颜。</p>
+<p>然后仔细思考了下，优化了输入输出，不断地改... 改了一下午，终于不T了，于是就WA了...</p>
+<p>Debug了一天没有发现问题。</p>
+<p>找了找网上的博客，发现需要在mincost里面判断cost, 如果cost增加了，就退出...</p>
+<p>emmmmmm</p>
+<p>意外的操作...</p>
+<p>可能是因为最小费用最大流优先保障的是最大流，而该题不需要保障最大流，故而优先保障最小费用。</p>
+<p>涨姿势...</p>
+<p></p>
+<p>HDU:</p>
+<p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5383">HDU-5383 - Yu-Gi-Oh!</a></p>
+<p>Github:</p>
+<p><a href="https://github.com/Donny-Hikari/HDU-5383">HDU-5383 - Github</a></p>
+</div><div class="signature">By Donny</div><div class="last_edit">Last modified: 2017-08-26</div></div></body></html>

@@ -62,6 +62,13 @@ function onClickAboutme() {
   jumpToAboutme();
 }
 
+function onClickACMHome() {
+  if (window.location.hash) window.location.hash+="&filter=acm";
+  else window.location.hash="#filter=acm";
+  window.location.reload();
+  $(window).scrollTop(0);
+}
+
 function loadRmService() {
   $.ajax({
     url: "./libs/rmservice.js",
