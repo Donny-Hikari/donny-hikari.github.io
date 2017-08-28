@@ -471,6 +471,7 @@ function analyzePostsParam(params, callback) {
           var aimpost = postslist[postslist.length - param_article];
           if (!aimpost) return callback();
           if (!(aimpost = specialPost(aimpost))) return callback();
+          if (!(aimpost = filterPost(aimpost))) return callback();
           var postfolder = getFolder(yearfolder + aimpost);
           var infofilename = getFilename(aimpost);
           
