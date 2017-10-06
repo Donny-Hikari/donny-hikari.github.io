@@ -42,10 +42,10 @@ function onCloseMenu() {
 }
 
 function onChangeAvatarStyle() {
-  if ($("#myprofile").attr("lang") == "centerized") {
-    $("#myprofile").attr("lang", "");
+  if ($("#myprofile").hasClass("profile-centerized")) {
+    $("#myprofile").removeClass("profile-centerized");
   } else {
-    $("#myprofile").attr("lang", "centerized");
+    $("#myprofile").addClass("profile-centerized");
   }
 }
 
