@@ -1,47 +1,13 @@
 [
-    {"filter": "acm", "infofile": "./08/27/postinfo.json"},
-    {"filter": "acm", "infofile": "./08/26/postinfo.json"},
-    {"filter": "acm", "infofile": "./08/24/postinfo.json"},
-    {"filter": "acm", "infofile": "./08/23/postinfo.json"},
-    {"filter": "acm", "infofile": "./07/25/VJ-172735-A/postinfo.json"},
-    {"filter": "acm", "infofile": "./07/30/postinfo.json"},
-    {"filter": "acm", "infofile": "./07/25/postinfo.json"},
-    {
-        "mode": "secret",
-        "infofile": "./08/14/postinfo.json"
-    },
-    {
-        "mode": "secret",
-        "infofile": "./08/04/postinfo.json"
-    },
-    {
-        "mode": "secret",
-        "infofile": "./07/03/postinfo.json"
-    },
-    {
-        "mode": "secret",
-        "infofile": "./05/31/postinfo.json"
-    },
-    {
-        "mode": "secret",
-        "infofile": "./04/18/postinfo.json"
-    },
-    {
-        "mode": "secret",
-        "infofile": "./02/05/postinfo.json"
-    },
-    {
-        "mode": "secret",
-        "infofile": "./02/05/legal-loli/legal-loli.json"
-    },
-    {
-        "mode": "secret",
-        "infofile": "./02/01/postinfo.json"
-    },
-    {
-        "mode": "secret",
-        "infofile": "./01/28/postinfo.json"
-    },
-    "./01/26/postinfo.json",
-    "./01/25/postinfo.json"
+    {"mode": "secret", "infofile": "./08/14/postinfo.json"},
+    {"mode": "secret", "infofile": "./08/04/postinfo.json"},
+    {"infofile": "./07/03/postinfo.json"},
+    {"mode": "secret", "infofile": "./05/31/postinfo.json"},
+    {"infofile": "./04/18/postinfo.json"},
+    {"infofile": "./02/05/postinfo.json"},
+    {"infofile": "./02/05/legal-loli/legal-loli.json"},
+    {"infofile": "./02/01/postinfo.json"},
+    {"mode": "secret", "infofile": "./01/28/postinfo.json"},
+    {"infofile": "./01/26/postinfo.json"},
+    {"infofile": "./01/25/postinfo.json"}
 ]
