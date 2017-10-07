@@ -1,13 +1,36 @@
-[
-    {"mode": "secret", "infofile": "./08/14/postinfo.json"},
-    {"mode": "secret", "infofile": "./08/04/postinfo.json"},
-    {"infofile": "./07/03/postinfo.json"},
-    {"mode": "secret", "infofile": "./05/31/postinfo.json"},
-    {"infofile": "./04/18/postinfo.json"},
-    {"infofile": "./02/05/postinfo.json"},
-    {"infofile": "./02/05/legal-loli/legal-loli.json"},
-    {"infofile": "./02/01/postinfo.json"},
-    {"mode": "secret", "infofile": "./01/28/postinfo.json"},
-    {"infofile": "./01/26/postinfo.json"},
-    {"infofile": "./01/25/postinfo.json"}
-]
+[{
+    "main": "2017-10-07-Test-Smart-New-Post.html",
+    "title": "Test Smart New Post",
+    "author": "Donny",
+    "date": "2017-10-07",
+    "poster": "IMG_0269.PNG",
+    "direct": true,
+    "postfolder": "./10/07/",
+    "infofile": "./10/07/Test-Smart-New-Post-postinfo.json"
+}, {
+    "mode": "secret",
+    "infofile": "./08/14/postinfo.json"
+}, {
+    "mode": "secret",
+    "infofile": "./08/04/postinfo.json"
+}, {
+    "infofile": "./07/03/postinfo.json"
+}, {
+    "mode": "secret",
+    "infofile": "./05/31/postinfo.json"
+}, {
+    "infofile": "./04/18/postinfo.json"
+}, {
+    "infofile": "./02/05/postinfo.json"
+}, {
+    "infofile": "./02/05/legal-loli/legal-loli.json"
+}, {
+    "infofile": "./02/01/postinfo.json"
+}, {
+    "mode": "secret",
+    "infofile": "./01/28/postinfo.json"
+}, {
+    "infofile": "./01/26/postinfo.json"
+}, {
+    "infofile": "./01/25/postinfo.json"
+}]
