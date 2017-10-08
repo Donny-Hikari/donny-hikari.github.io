@@ -6,11 +6,8 @@
 *
 * https://github.com/Donny-Hikari/stream-blog
 *
-* Version: 0.4.9
+* Version: 0.5.5
 */
-
-var DEBUG_MODE = true;
-var DEBUG_VERBOSE = DEBUG_MODE && false;
 
 function getFolder(fullpath) {
   var i = fullpath.lastIndexOf('/');

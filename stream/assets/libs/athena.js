@@ -6,11 +6,8 @@
 *
 * https://github.com/Donny-Hikari/stream-blog
 *
-* Version: 0.1.9
+* Version: 0.2.3
 */
-
-var DEBUG_MODE = true;
-var DEBUG_VERBOSE = DEBUG_MODE && true;
 
 /* Trigger onpushstate when pushState */
 function listenPushState() {
@@ -100,7 +97,8 @@ function loadRmService() {
   $.ajax({
     url: "./libs/rmservice.js",
     dataType: "script",
-    success: null
+    success: () => {},
+    error: () => {}
   });
 }
 
@@ -204,6 +202,6 @@ $(window).ready(function (){
 
   analyzeUrlParam();
   
-  loadRmService();
+  //loadRmService();
 
 });

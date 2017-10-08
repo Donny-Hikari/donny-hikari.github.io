@@ -1,21 +1,16 @@
 /*
-* ACMLoader - ACM homepage loader
+* Pageloader - ACM homepage loader
 *
 * Copyright (c) 2017 Donny Hikari
 * licensed under MIT license.
 *
 * https://github.com/Donny-Hikari/stream-blog
 *
-* Version: 0.0.1
+* Version: 0.1.2
 */
 
-var DEBUG_MODE = true;
-var DEBUG_VERBOSE = DEBUG_MODE && true;
-
-var blogroot = "./blogs/";
-
 /*
-blogsloader depend on the following variables/function:
+blogsloader depend on the following variables/function in pageloader:
 + PageStateEnum
 + homepageScrollTop
 - pushHistoryState

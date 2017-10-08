@@ -1,4 +1,13 @@
 [{
+    "main": "2017-10-08-人与物.html",
+    "title": "人与物",
+    "author": "Donny",
+    "date": "2017-10-08",
+    "poster": "bird.jpg",
+    "direct": true,
+    "postfolder": "./10/08/",
+    "infofile": "./10/08/人与物-postinfo.json"
+}, {
     "main": "2017-10-07-Test-Smart-New-Post.html",
     "title": "Test Smart New Post",
     "author": "Donny",
