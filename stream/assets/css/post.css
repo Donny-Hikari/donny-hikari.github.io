@@ -1,6 +1,17 @@
 
-.mainbody {
-    border-radius: 15px;
+.articlecontainer {
+	width: 100%;
+	min-width: 900px;
+	padding: 100px 7%;
+    box-sizing: border-box;
+	margin: auto;
+	border-radius: 15px;
+	background-color: white;
+	box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+}
+.mainbodycontainer {
+	margin: 0 auto;
+	border-radius: 15px;
 }
 
 .musicbox {
@@ -26,6 +37,15 @@
 
 /* On big screen */
 @media screen and (min-width: 1000px) {
+	.articlecontainer {
+		width: 52%;
+		padding: 100px;
+	}
+	.mainbodycontainer {
+		width: 84%;
+		border-radius: 15px;
+	}
+
 	.musicbox {
 		display: table;
 		margin: 20px auto;

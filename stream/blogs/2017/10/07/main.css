@@ -4,12 +4,6 @@
 * 
 * v2017.07.03
 */
-.mainbody {
-	margin: 0 auto;
-	padding: 40px 5%;
-	position: relative;
-	background-color: white;
-}
 .headline {
 	width: 90%;
 	margin-left: auto;
@@ -40,7 +34,7 @@
 	padding: 60px 0 120px;
 	font-size: 40px;
 	position: relative;
-	text-align: left;
+    text-align: justify;
 }
 .bodytext p {
 	display: block;
@@ -68,10 +62,6 @@ li.linkinfo {
 }
 
 @media screen and (min-width: 1000px) {
-	.mainbody {
-		width: 70%;
-		padding: 60px 15%;
-	}
 	.headline {
 		font-size: 34px;
 	}

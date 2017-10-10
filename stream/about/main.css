@@ -4,6 +4,9 @@
 * 
 * v2017.02.04
 */
+.articlecontainer {
+	width: 65%;
+}
 .mainbody {
 	padding: 60px 15%;
 	position: relative;
@@ -16,6 +19,10 @@
 	line-height: 1.0;
 }
 .prof-detail {
+	display: block;
+    text-align: justify;
+}
+.userprofile {
 	display: flex;
 }
 .userdetail {
@@ -25,12 +32,14 @@
 	padding: 0 20px;
 }
 .prof-avatar-detail {
-	width: 256px;
+	width: 128px;
+	height: 128px;
+	margin: 20px 40px;
     box-shadow: 0 0 10px 2px black;
     border-radius: 18px;
 }
 .prof-username-detail {
-	margin: 0 0 10px 0;
+	margin: auto 40px;
 	font-size: 45px;
     color: #466bdf;
     text-shadow: 0 0px 3px #000000;
@@ -51,12 +60,13 @@
     position: relative;
     max-width: 0;
     max-height: 0;
-    left: -20px;
+    left: -30px;
     top: 3px;
     color: #439800;
     font-size: 34px;
-    content: '\2022';
+	content: '\2022';
 }
+
 /*On Small Screen*/
 @media screen and (min-width: 0px) and (max-width: 1000px) {
 	.mainbody {
@@ -66,6 +76,9 @@
 		margin-top: 200px;
 		font-size: 30px;
 	}
+	.userprofile {
+		display: block;
+	}
 	.prof-detail {
 		display: block;
 		text-align: center;
@@ -73,6 +86,7 @@
 	.prof-avatar-detail {
 	    padding: 5px;
 		width: 280px;
+		height: 280px;
 	    border: 2px solid #42b5ff;
 	    border-radius: 50%;
 	}
@@ -87,7 +101,7 @@
 	.userdetail .infolist ul li {
 		margin: 20px 0;
     	line-height: 1.6;
-		font-size: 24px;
+		font-size: 34px;
 	    color: #1f1f1f;
 	}
 	.userdetail .infolist ul li:before {

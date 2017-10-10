@@ -92,8 +92,13 @@ function processpostHTML(postinfo, rawHTML) {
   var loadedscripts = getLoadedMainScripts();
 
   // Assign context
-  var postContainer = document.getElementById("postContainer");
-  postContainer.innerHTML = rawHTML;
+  var $postContainer = $("#postContainer").empty();
+  $postContainer.html(rawHTML);
+  if ($postContainer.find(".mainbody").length > 0) {
+    $mainbody = $postContainer.find(".mainbody");
+    $mainbody.removeClass("mainbody").addClass("mainbodycontainer");
+    
+  }
 
   // Setting title
   var title = (postinfo.title) ? (postinfo.title) : document.getElementById("postTitle").innerHTML;
